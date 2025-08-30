@@ -1,0 +1,16 @@
+{
+    const miniapp = {
+        version: "1",
+        imageUrl: "https://yoink.party/framesV2/opengraph-image",
+        button: {
+          title: "Yama Start",
+          action: {
+            type: "launch_miniapp",
+            url: "https://yoink.party/framesV2",
+            name:"Yama!",
+            splashImageUrl: "https://yoink.party/logo.png",
+            splashBackgroundColor:"#f5f0ec"
+          }
+        }
+      }
+}
