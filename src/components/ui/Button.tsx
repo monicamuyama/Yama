@@ -3,7 +3,7 @@ import { cn } from '../../utils';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'danger';
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'xs' | 'sm' | 'md' | 'lg';
   loading?: boolean;
   children: React.ReactNode;
 }
@@ -28,6 +28,7 @@ const Button: React.FC<ButtonProps> = ({
   };
 
   const sizes = {
+    xs: 'px-2 py-1 text-xs',
     sm: 'px-3 py-1.5 text-sm',
     md: 'px-4 py-2 text-sm',
     lg: 'px-6 py-3 text-base',
@@ -46,7 +47,7 @@ const Button: React.FC<ButtonProps> = ({
     >
       {loading && (
         <svg
-          className="animate-spin -ml-1 mr-2 h-4 w-4"
+          className="animate-spin -ml-1 mr-2 h-3 w-3 sm:h-4 sm:w-4"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"

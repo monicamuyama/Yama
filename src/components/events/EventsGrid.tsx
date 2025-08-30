@@ -69,15 +69,15 @@ const EventsGrid: React.FC<EventsGridProps> = ({
   ];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       {/* Search and Filters */}
-      <div className="bg-white rounded-lg border border-gray-200 p-4">
-        <div className="flex flex-col lg:flex-row gap-4">
+      <div className="bg-white rounded-lg border border-gray-200 p-3 sm:p-4">
+        <div className="flex flex-col space-y-3 sm:space-y-0 sm:flex-row sm:space-x-4">
           {/* Search Bar */}
           <div className="flex-1">
             <div className="relative">
               <svg
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -94,7 +94,7 @@ const EventsGrid: React.FC<EventsGridProps> = ({
                 placeholder="Search events, venues, or descriptions..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
             </div>
           </div>
@@ -105,24 +105,25 @@ const EventsGrid: React.FC<EventsGridProps> = ({
               <button
                 key={category.value}
                 onClick={() => setSelectedCategory(category.value as EventCategory | 'all')}
-                className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                className={`px-2 py-1 sm:px-3 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors ${
                   selectedCategory === category.value
                     ? 'bg-blue-600 text-white'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
-                <span className="mr-2">{category.icon}</span>
-                {category.label}
+                <span className="mr-1 sm:mr-2 text-sm">{category.icon}</span>
+                <span className="hidden sm:inline">{category.label}</span>
+                <span className="sm:hidden">{category.label.split(' ')[0]}</span>
               </button>
             ))}
           </div>
 
           {/* Sort Dropdown */}
-          <div className="lg:w-48">
+          <div className="w-full sm:w-48">
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as 'date' | 'price' | 'name')}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             >
               <option value="date">Sort by Date</option>
               <option value="price">Sort by Price</option>
@@ -134,7 +135,7 @@ const EventsGrid: React.FC<EventsGridProps> = ({
 
       {/* Results Count */}
       <div className="flex items-center justify-between">
-        <p className="text-gray-600">
+        <p className="text-sm text-gray-600">
           Showing {filteredEvents.length} of {events.length} events
         </p>
         {searchQuery && (
@@ -142,6 +143,7 @@ const EventsGrid: React.FC<EventsGridProps> = ({
             variant="ghost"
             size="sm"
             onClick={() => setSearchQuery('')}
+            className="text-xs sm:text-sm"
           >
             Clear Search
           </Button>
@@ -150,7 +152,7 @@ const EventsGrid: React.FC<EventsGridProps> = ({
 
       {/* Events Grid */}
       {filteredEvents.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
           {filteredEvents.map((event) => (
             <EventCard
               key={event.id}
@@ -161,10 +163,10 @@ const EventsGrid: React.FC<EventsGridProps> = ({
           ))}
         </div>
       ) : (
-        <div className="text-center py-12">
-          <div className="text-6xl mb-4">🔍</div>
-          <h3 className="text-lg font-medium text-gray-900 mb-2">No events found</h3>
-          <p className="text-gray-600 mb-4">
+        <div className="text-center py-8 sm:py-12">
+          <div className="text-4xl sm:text-6xl mb-4">🔍</div>
+          <h3 className="text-base sm:text-lg font-medium text-gray-900 mb-2">No events found</h3>
+          <p className="text-sm sm:text-base text-gray-600 mb-4 px-4">
             {searchQuery
               ? `No events match "${searchQuery}". Try adjusting your search or filters.`
               : 'No events are currently available in this category.'}
@@ -176,6 +178,7 @@ const EventsGrid: React.FC<EventsGridProps> = ({
                 setSearchQuery('');
                 setSelectedCategory('all');
               }}
+              className="text-sm"
             >
               Clear All Filters
             </Button>

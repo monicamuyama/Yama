@@ -40,21 +40,21 @@ function App() {
                       <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
                         Yama
                       </div>
-                      <span className="ml-2 text-sm text-gray-500">Event Ecosystem</span>
+                      <span className="ml-2 text-sm text-gray-500 hidden sm:block">Event Ecosystem</span>
                     </div>
 
-                    {/* Navigation */}
-                    <nav className="hidden md:flex space-x-8">
-                      <a href="#" className="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium">
+                    {/* Navigation - Hidden on mobile, visible on larger screens */}
+                    <nav className="hidden md:flex space-x-6 lg:space-x-8">
+                      <a href="#" className="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
                         Discover
                       </a>
-                      <a href="#" className="text-gray-500 hover:text-blue-600 px-3 py-2 text-sm font-medium">
+                      <a href="#" className="text-gray-500 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
                         Create Event
                       </a>
-                      <a href="#" className="text-gray-500 hover:text-blue-600 px-3 py-2 text-sm font-medium">
+                      <a href="#" className="text-gray-500 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
                         My Events
                       </a>
-                      <a href="#" className="text-gray-500 hover:text-blue-600 px-3 py-2 text-sm font-medium">
+                      <a href="#" className="text-gray-500 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
                         Rewards
                       </a>
                     </nav>
@@ -66,13 +66,13 @@ function App() {
               </header>
 
               {/* Main Content */}
-              <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+              <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
                 {/* Hero Section */}
-                <div className="text-center mb-12">
-                  <h1 className="text-4xl font-bold text-gray-900 mb-4">
+                <div className="text-center mb-8 sm:mb-12">
+                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
                     Discover Amazing Events
                   </h1>
-                  <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                  <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
                     Join the world's first Web3 event ecosystem where every interaction is valuable, 
                     every memory is owned, and every connection is meaningful.
                   </p>
@@ -87,8 +87,8 @@ function App() {
               </main>
 
               {/* Footer */}
-              <footer className="bg-white border-t border-gray-200 mt-16">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+              <footer className="bg-white border-t border-gray-200 mt-12 sm:mt-16">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
                   <div className="text-center text-gray-500 text-sm">
                     <p>&copy; 2024 Yama. Building the future of events on Web3.</p>
                   </div>

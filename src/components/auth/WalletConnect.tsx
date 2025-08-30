@@ -9,18 +9,18 @@ const WalletConnect: React.FC = () => {
   if (isLoading) {
     return (
       <div className="flex items-center space-x-2">
-        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600"></div>
-        <span className="text-sm text-gray-600">Connecting...</span>
+        <div className="animate-spin rounded-full h-3 w-3 sm:h-4 sm:w-4 border-b-2 border-blue-600"></div>
+        <span className="text-xs sm:text-sm text-gray-600">Connecting...</span>
       </div>
     );
   }
 
   if (isAuthenticated && user && wallet) {
     return (
-      <div className="flex items-center space-x-3">
+      <div className="flex items-center space-x-2 sm:space-x-3">
         <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
-            <span className="text-sm font-medium text-blue-600">
+          <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-blue-100 flex items-center justify-center">
+            <span className="text-xs sm:text-sm font-medium text-blue-600">
               {user.displayName?.charAt(0) || user.username?.charAt(0) || 'U'}
             </span>
           </div>
@@ -33,6 +33,7 @@ const WalletConnect: React.FC = () => {
           variant="outline"
           size="sm"
           onClick={disconnect}
+          className="text-xs sm:text-sm px-2 sm:px-3 py-1 sm:py-2"
         >
           Disconnect
         </Button>
@@ -43,7 +44,7 @@ const WalletConnect: React.FC = () => {
   return (
     <Button
       onClick={connect}
-      className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+      className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-xs sm:text-sm px-3 sm:px-4 py-2"
     >
       Connect Wallet
     </Button>

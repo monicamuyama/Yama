@@ -7,35 +7,58 @@
   html {
     font-family: 'Inter', system-ui, sans-serif;
   }
+  
+  /* Better mobile touch targets */
+  button, a, input, select {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Mobile-first responsive text */
+  h1 {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
+  }
+  
+  h2 {
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl;
+  }
+  
+  h3 {
+    @apply text-lg sm:text-xl md:text-2xl lg:text-3xl;
+  }
+  
+  p {
+    @apply text-sm sm:text-base md:text-lg;
+  }
 }
 
 @layer components {
   /* Custom button styles */
   .btn-primary {
-    @apply bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors;
+    @apply bg-blue-600 text-white px-3 sm:px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm sm:text-base;
   }
   
   .btn-secondary {
-    @apply bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors;
+    @apply bg-gray-600 text-white px-3 sm:px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors text-sm sm:text-base;
   }
   
   .btn-outline {
-    @apply border border-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-50 transition-colors;
+    @apply border border-gray-300 text-gray-700 px-3 sm:px-4 py-2 rounded-lg hover:bg-gray-50 transition-colors text-sm sm:text-base;
   }
   
   /* Custom card styles */
   .card {
-    @apply bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow;
+    @apply bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow p-3 sm:p-4 md:p-6;
   }
   
   /* Custom input styles */
   .input {
-    @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+    @apply w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent;
   }
   
   /* Custom badge styles */
   .badge {
-    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+    @apply inline-flex items-center px-2 py-1 rounded-full text-xs font-medium;
   }
   
   .badge-primary {
@@ -56,6 +79,19 @@
   
   .badge-danger {
     @apply bg-red-100 text-red-800;
+  }
+  
+  /* Responsive grid layouts */
+  .grid-responsive {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6;
+  }
+  
+  .grid-responsive-2 {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6;
+  }
+  
+  .grid-responsive-3 {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6;
   }
 }
 
@@ -112,6 +148,40 @@
   .animate-bounce-gentle {
     animation: bounceGentle 2s infinite;
   }
+  
+  /* Responsive spacing */
+  .space-y-responsive > * + * {
+    @apply mt-3 sm:mt-4 md:mt-6;
+  }
+  
+  .space-x-responsive > * + * {
+    @apply ml-3 sm:ml-4 md:ml-6;
+  }
+  
+  /* Mobile-first padding and margins */
+  .p-responsive {
+    @apply p-3 sm:p-4 md:p-6;
+  }
+  
+  .px-responsive {
+    @apply px-3 sm:px-4 md:px-6;
+  }
+  
+  .py-responsive {
+    @apply py-3 sm:py-4 md:py-6;
+  }
+  
+  .m-responsive {
+    @apply m-3 sm:m-4 md:m-6;
+  }
+  
+  .mx-responsive {
+    @apply mx-3 sm:mx-4 md:mx-6;
+  }
+  
+  .my-responsive {
+    @apply my-3 sm:my-4 md:my-6;
+  }
 }
 
 /* Custom animations */
@@ -149,6 +219,16 @@
   .container {
     @apply px-4;
   }
+  
+  /* Smaller icons on mobile */
+  .icon-mobile {
+    @apply text-sm;
+  }
+  
+  /* Compact spacing on mobile */
+  .compact-mobile {
+    @apply space-y-2;
+  }
 }
 
 @media (min-width: 641px) and (max-width: 1024px) {
@@ -160,5 +240,33 @@
 @media (min-width: 1025px) {
   .container {
     @apply px-8;
+  }
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 768px) {
+  /* Ensure touch targets are large enough */
+  button, a, input, select {
+    min-height: 48px;
+    min-width: 48px;
+  }
+  
+  /* Reduce font sizes on very small screens */
+  @media (max-width: 480px) {
+    .text-responsive {
+      font-size: 0.875rem;
+    }
+    
+    .text-responsive-lg {
+      font-size: 1rem;
+    }
+  }
+}
+
+/* High DPI display optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .icon-sharp {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
   }
 }
