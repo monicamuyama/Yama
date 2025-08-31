@@ -69,10 +69,10 @@ const EventsGrid: React.FC<EventsGridProps> = ({
   ];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       {/* Search and Filters */}
-      <div className="bg-white rounded-lg border border-gray-200 p-4">
-        <div className="flex flex-col lg:flex-row gap-4">
+      <div className="bg-white rounded-lg border border-gray-200 p-3 sm:p-4">
+        <div className="flex flex-col space-y-3 sm:space-y-0 sm:flex-row sm:space-x-4">
           {/* Search Bar */}
           <div className="flex-1">
             <div className="relative">
@@ -102,7 +102,7 @@ const EventsGrid: React.FC<EventsGridProps> = ({
               <button
                 key={category.value}
                 onClick={() => setSelectedCategory(category.value as EventCategory | 'all')}
-                className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                className={`px-2 py-1 sm:px-3 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors ${
                   selectedCategory === category.value
                     ? 'bg-purple-600 text-white'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -115,7 +115,7 @@ const EventsGrid: React.FC<EventsGridProps> = ({
           </div>
 
           {/* Sort Dropdown */}
-          <div className="lg:w-48">
+          <div className="w-full sm:w-48">
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as 'date' | 'price' | 'name')}
@@ -131,7 +131,7 @@ const EventsGrid: React.FC<EventsGridProps> = ({
 
       {/* Results Count */}
       <div className="flex items-center justify-between">
-        <p className="text-gray-600">
+        <p className="text-sm text-gray-600">
           Showing {filteredEvents.length} of {events.length} events
         </p>
         {searchQuery && (
@@ -139,6 +139,7 @@ const EventsGrid: React.FC<EventsGridProps> = ({
             variant="ghost"
             size="sm"
             onClick={() => setSearchQuery('')}
+            className="text-xs sm:text-sm"
           >
             Clear Search
           </Button>
@@ -173,6 +174,7 @@ const EventsGrid: React.FC<EventsGridProps> = ({
                 setSearchQuery('');
                 setSelectedCategory('all');
               }}
+              className="text-sm"
             >
               Clear All Filters
             </Button>

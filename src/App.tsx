@@ -82,27 +82,17 @@ function App() {
                 </div>
               </header>
 
-              {/* Enhanced Hero Section */}
-              <section className="bg-gradient-to-br from-purple-50 to-indigo-100 py-16">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                  <div className="text-center">
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-                      Discover Amazing
-                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-purple-800"> Events</span>
-                    </h1>
-                    <p className="text-xl sm:text-2xl text-gray-600 max-w-4xl mx-auto mb-8">
-                      Join the world's first Web3 event ecosystem where every interaction is valuable, 
-                      every memory is owned, and every connection is meaningful.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                      <button className="bg-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-purple-700 transition-colors">
-                        Explore Events
-                      </button>
-                      <button className="border border-purple-300 text-purple-700 px-8 py-4 rounded-lg font-semibold hover:bg-purple-50 transition-colors">
-                        Create Event
-                      </button>
-                    </div>
-                  </div>
+              {/* Main Content */}
+              <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+                {/* Hero Section */}
+                <div className="text-center mb-8 sm:mb-12">
+                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
+                    Discover Amazing Events
+                  </h1>
+                  <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
+                    Join the world's first Web3 event ecosystem where every interaction is valuable, 
+                    every memory is owned, and every connection is meaningful.
+                  </p>
                 </div>
               </section>
 

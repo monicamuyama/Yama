@@ -7,6 +7,29 @@
   html {
     font-family: 'Inter', system-ui, sans-serif;
   }
+  
+  /* Better mobile touch targets */
+  button, a, input, select {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Mobile-first responsive text */
+  h1 {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
+  }
+  
+  h2 {
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl;
+  }
+  
+  h3 {
+    @apply text-lg sm:text-xl md:text-2xl lg:text-3xl;
+  }
+  
+  p {
+    @apply text-sm sm:text-base md:text-lg;
+  }
 }
 
 @layer components {
@@ -27,7 +50,7 @@
   
   /* Custom card styles */
   .card {
-    @apply bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow;
+    @apply bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow p-3 sm:p-4 md:p-6;
   }
   
   /* Custom input styles */
@@ -37,7 +60,7 @@
   
   /* Custom badge styles */
   .badge {
-    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+    @apply inline-flex items-center px-2 py-1 rounded-full text-xs font-medium;
   }
   
   .badge-primary {
@@ -58,6 +81,19 @@
   
   .badge-danger {
     @apply bg-red-100 text-red-800;
+  }
+  
+  /* Responsive grid layouts */
+  .grid-responsive {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6;
+  }
+  
+  .grid-responsive-2 {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6;
+  }
+  
+  .grid-responsive-3 {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6;
   }
 }
 
@@ -238,5 +274,33 @@
 @media (min-width: 1025px) {
   .container {
     @apply px-8;
+  }
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 768px) {
+  /* Ensure touch targets are large enough */
+  button, a, input, select {
+    min-height: 48px;
+    min-width: 48px;
+  }
+  
+  /* Reduce font sizes on very small screens */
+  @media (max-width: 480px) {
+    .text-responsive {
+      font-size: 0.875rem;
+    }
+    
+    .text-responsive-lg {
+      font-size: 1rem;
+    }
+  }
+}
+
+/* High DPI display optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .icon-sharp {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
   }
 }
