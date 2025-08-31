@@ -12,15 +12,17 @@
 @layer components {
   /* Custom button styles */
   .btn-primary {
-    @apply bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors;
+    /* replaced blue -> purple theme */
+    @apply bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors;
   }
   
   .btn-secondary {
-    @apply bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors;
+    /* secondary uses a purple-gray tone */
+    @apply bg-purple-500/10 text-purple-700 px-4 py-2 rounded-lg hover:bg-purple-100 transition-colors;
   }
   
   .btn-outline {
-    @apply border border-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-50 transition-colors;
+    @apply border border-purple-300 text-purple-700 px-4 py-2 rounded-lg hover:bg-purple-50 transition-colors;
   }
   
   /* Custom card styles */
@@ -30,7 +32,7 @@
   
   /* Custom input styles */
   .input {
-    @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+    @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent;
   }
   
   /* Custom badge styles */
@@ -39,7 +41,7 @@
   }
   
   .badge-primary {
-    @apply bg-blue-100 text-blue-800;
+    @apply bg-purple-100 text-purple-800;
   }
   
   .badge-secondary {
@@ -84,7 +86,8 @@
   
   /* Custom gradients */
   .gradient-primary {
-    @apply bg-gradient-to-r from-blue-600 to-purple-600;
+    /* shift primary gradient to purple shades */
+    @apply bg-gradient-to-r from-purple-600 to-purple-800;
   }
   
   .gradient-secondary {
@@ -111,6 +114,72 @@
   
   .animate-bounce-gentle {
     animation: bounceGentle 2s infinite;
+  }
+
+  /* Icon utilities: use .icon, .icon-sm|md|lg to control inline SVG sizes */
+  .icon {
+    width: 1rem;
+    height: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon-sm { width: 0.75rem; height: 0.75rem; }
+  .icon-md { width: 1rem; height: 1rem; }
+  .icon-lg { width: 1.25rem; height: 1.25rem; }
+
+  /* Ensure SVGs inside an element with .icon scale to the container */
+  .icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Tighten svg sizes for cards, meta rows and search icon */
+  .card svg,
+  .event-meta svg,
+  .search-icon,
+  .card-action {
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+
+  /* Slightly larger on small+ screens */
+  @media (min-width: 640px) {
+    .card svg,
+    .event-meta svg,
+    .search-icon,
+    .card-action {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+
+  /* Make SVGs inside buttons slightly smaller and consistent */
+  button svg {
+    width: 0.75rem;
+    height: 0.75rem;
+    vertical-align: middle;
+  }
+
+  @media (min-width: 640px) {
+    button svg {
+      width: 0.875rem;
+      height: 0.875rem;
+    }
+  }
+
+  /* spinner helper */
+  .spinner {
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+
+  @media (min-width: 640px) {
+    .spinner {
+      width: 0.875rem;
+      height: 0.875rem;
+    }
   }
 }
 
@@ -148,6 +217,15 @@
 @media (max-width: 640px) {
   .container {
     @apply px-4;
+  }
+
+  /* slightly larger tap targets on small screens */
+  .btn-primary, .btn-secondary, .btn-outline {
+    @apply w-full py-3 text-base;
+  }
+
+  .card {
+    @apply p-4;
   }
 }
 

@@ -20,17 +20,19 @@ const Button: React.FC<ButtonProps> = ({
   const baseClasses = 'inline-flex items-center justify-center font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
   
   const variants = {
-    primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500',
-    secondary: 'bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500',
-    outline: 'border border-gray-300 text-gray-700 hover:bg-gray-50 focus:ring-blue-500',
-    ghost: 'text-gray-700 hover:bg-gray-100 focus:ring-gray-500',
+    /* switch blues -> purples, keep same intent */
+    primary: 'bg-purple-600 text-white hover:bg-purple-700 focus:ring-purple-500',
+    secondary: 'bg-purple-500/10 text-purple-700 hover:bg-purple-100 focus:ring-purple-500',
+    outline: 'border border-purple-300 text-purple-700 hover:bg-purple-50 focus:ring-purple-500',
+    ghost: 'text-purple-700 hover:bg-purple-100 focus:ring-purple-500',
     danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500',
   };
 
   const sizes = {
+    /* add small-screen-friendly sizes */
     sm: 'px-3 py-1.5 text-sm',
-    md: 'px-4 py-2 text-sm',
-    lg: 'px-6 py-3 text-base',
+    md: 'px-4 py-2 text-sm sm:text-base',
+    lg: 'px-6 py-3 text-base sm:px-8 sm:py-3',
   };
 
   return (
@@ -46,7 +48,8 @@ const Button: React.FC<ButtonProps> = ({
     >
       {loading && (
         <svg
-          className="animate-spin -ml-1 mr-2 h-4 w-4"
+          aria-hidden="true"
+          className="animate-spin -ml-0.5 mr-1 h-3 w-3 sm:h-3 sm:w-3"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -57,7 +60,7 @@ const Button: React.FC<ButtonProps> = ({
             cy="12"
             r="10"
             stroke="currentColor"
-            strokeWidth="4"
+            strokeWidth="3"
           />
           <path
             className="opacity-75"

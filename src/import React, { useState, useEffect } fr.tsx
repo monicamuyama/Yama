@@ -23,12 +23,11 @@ const EventsGrid: React.FC<EventsGridProps> = ({
   useEffect(() => {
     let filtered = events;
 
-    // Filter by category
+    // ...existing filtering and sorting code...
     if (selectedCategory !== 'all') {
       filtered = filtered.filter(event => event.category === selectedCategory);
     }
 
-    // Filter by search query
     if (searchQuery) {
       filtered = filtered.filter(event =>
         event.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -37,7 +36,6 @@ const EventsGrid: React.FC<EventsGridProps> = ({
       );
     }
 
-    // Sort events
     filtered.sort((a, b) => {
       switch (sortBy) {
         case 'date':
@@ -77,14 +75,17 @@ const EventsGrid: React.FC<EventsGridProps> = ({
           <div className="flex-1">
             <div className="relative">
               <svg
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 search-icon text-gray-400"
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 w-3 h-3 sm:w-4 sm:h-4 text-gray-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                aria-hidden="true"
               >
-                <circle cx="11" cy="11" r="8" strokeWidth="2"/>
-                <path d="m21 21-4.35-4.35" strokeWidth="2"/>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
               </svg>
               <input
                 type="text"
@@ -147,7 +148,7 @@ const EventsGrid: React.FC<EventsGridProps> = ({
 
       {/* Events Grid */}
       {filteredEvents.length > 0 ? (
-        <div className="space-y-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {filteredEvents.map((event) => (
             <EventCard
               key={event.id}
@@ -184,4 +185,3 @@ const EventsGrid: React.FC<EventsGridProps> = ({
 };
 
 export default EventsGrid;
-
